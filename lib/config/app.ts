@@ -4,6 +4,7 @@ import * as mongoose from 'mongoose';
 import environment from "../environment";
 import { TestRoutes } from "../routes/test_routes";
 import { UserRoutes } from "../routes/user_routes";
+import { QuestionRoutes } from "../routes/question_routes";
 import { CommonRoutes } from "../routes/common_routes";
 
 class App {
@@ -11,6 +12,7 @@ class App {
     public mongoUrl: string = 'mongodb://localhost:27017/' + environment.getDBName();
     private test_routes: TestRoutes = new TestRoutes();
     private user_routes: UserRoutes = new UserRoutes();
+    private question_routes: QuestionRoutes = new QuestionRoutes();
     private common_routes: CommonRoutes = new CommonRoutes();
 
     constructor() {
@@ -19,6 +21,7 @@ class App {
         this.mongoSetup();
         this.test_routes.route(this.app);
         this.user_routes.route(this.app);
+        this.question_routes.route(this.app);
         this.common_routes.route(this.app);
     }
 

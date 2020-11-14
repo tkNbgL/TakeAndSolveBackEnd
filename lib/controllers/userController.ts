@@ -50,7 +50,7 @@ export class UserController {
                 } else {
                     successResponse('get user successfull', user_data, res);
                 }
-            }) ;
+            });
         } else {
             insufficientParameters(res);
         }
